@@ -28,8 +28,8 @@ turbines().then(value => {
     }
 });
 // funskjon for å endre bruk av trubinene. Kan ha verdier mellom 0 og 1.
-function changeTurbineUsage(turbineIndex, Usage){
-    fetch("https://innafjord.azurewebsites.net/api/Turbines/" + turbineList[turbineIndex] + "?capacityUsage=" + Usage, {
+function changeTurbineUsage(turbineIndex, usage){
+    fetch("https://innafjord.azurewebsites.net/api/Turbines/" + turbineList[turbineIndex] + "?capacityUsage=" + usage, {
         method: "PUT",
         headers: {
             "GroupId": "Pavens vannkraftarbeidere",
