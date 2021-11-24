@@ -20,6 +20,23 @@ function turbines(){
         }
     }).then(r =>r.json());
 }
+// lager liste og putter alle turbin -id-ene i lista
+let turbineList = [];
+turbines().then(value => {
+    for (i = 0; i < value.length; i++){
+        turbineList.push(value[i].id)
+    }
+});
+// funskjon for å endre bruk av trubinene. Kan ha verdier mellom 0 og 1.
+function changeTurbineUsage(turbineIndex, Usage){
+    fetch("https://innafjord.azurewebsites.net/api/Turbines/" + turbineList[turbineIndex] + "?capacityUsage=" + Usage, {
+        method: "PUT",
+        headers: {
+            "GroupId": "Pavens vannkraftarbeidere",
+            "GroupKey": "/kJ+p7iy1kShleUuDqPNEA=="
+        }
+    });
+}
 
 
 // printer alt
