@@ -12,9 +12,35 @@
     
     <script src="script.js"></script>
 
+    <script>
+        function Choose(showID){
+          let hideID = document.getElementsByClassName("hiddenElement");
+          for(let i = 0; i < hideID.length; i++){
+            hideID[i].style.display = "none";
+            console.log("hide " + i)
+          }
+          for(let i = 0; i < hideID.length; i++){
+            document.getElementById(showID[i]).style.display = "block";
+            console.log("show " + i)
+          }
+        }
+    </script>
+
     <div class="sidebar">
-        <p>Hei hei :)</p>
-        <p>Hei hallo :)</p>
+        <br>
+        <h1>Meny</h1>
+        <br> <br>
+        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #1</a>
+        <br>
+        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #2</a>
+        <br>
+        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
+    </div>
+
+    <div class="infoSpace">
+        <div id="vannstand" class="Vannstand hiddenElement">
+            
+        </div>
     </div>
 
 </body>
