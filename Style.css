@@ -7,11 +7,31 @@ a {
     color: white;
 }
 
+.content {
+    display: flex;
+    flex-direction: row;
+    background-color: crimson;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
     background-color: darkslategray;
     height: 100vh;
     width: 250px;
+}
+
+.infoSpace {
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+    width: 300px;
+}
+
+.Vannstand {
+    display: flex;
+    flex-direction: row;
+    display: block;
+    background-color: lightgreen;
 }
 

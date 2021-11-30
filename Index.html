@@ -25,21 +25,35 @@
           }
         }
     </script>
+    
+    <div class="Content">
+        <div class="sidebar">
+            <br>
+            <h1>Meny</h1>
+            <br> <br>
+            <a href="#vannstand" onclick="Choose(['vannstand'])">Something rom #1</a>
+            <br>
+            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #2</a>
+            <br>
+            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
+        </div>
 
-    <div class="sidebar">
-        <br>
-        <h1>Meny</h1>
-        <br> <br>
-        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #1</a>
-        <br>
-        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #2</a>
-        <br>
-        <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
-    </div>
+        <h2>Halla</h2>
 
-    <div class="infoSpace">
-        <div id="vannstand" class="Vannstand hiddenElement">
-            
+        <div class="infoSpace">
+            <div id="vannstand" class="Vannstand hiddenElement">
+                <h2>test</h2>
+                <script>
+                    var data = [
+                        {
+                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                            y: [20, 32, 40],
+                            type: 'bar'
+                        }
+                    ];
+                    Plotly.newPlot('vannstand', data);
+                </script>
+            </div>
         </div>
     </div>
 
