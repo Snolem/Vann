@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavens Vannkraftarbeidere</title>
-    <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
+    <title>Pavens Vannkraftarbeidere!</title>
     <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
 </head>
 <body>
-    
-    <script src="script.js"></script>
 
     <script>
         function Choose(showID){
@@ -18,15 +16,13 @@
           for(let i = 0; i < hideID.length; i++){
             hideID[i].style.display = "none";
             console.log("hide " + i)
-          }
-          for(let i = 0; i < hideID.length; i++){
             document.getElementById(showID[i]).style.display = "block";
             console.log("show " + i)
           }
         }
     </script>
     
-    <div class="Content">
+    <div class="mainDiv">
         <div class="sidebar">
             <br>
             <h1>Meny</h1>
@@ -37,25 +33,14 @@
             <br>
             <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
         </div>
+        <div id="bubbleDiv"></div>
 
-        <h2>Halla</h2>
 
-        <div class="infoSpace">
-            <div id="vannstand" class="Vannstand hiddenElement">
-                <h2>test</h2>
-            </div>
-            <script>
-                var data = [
-                    {
-                        x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                        y: [20, 32, 40],
-                        type: 'bar'
-                    }
-                ];
-                Plotly.newPlot('vannstand', data);
-            </script>
-        </div>
     </div>
 
+
+    <script src="script.js"></script>
+    <script src="animation.js"></script>
+    <script src="graph.js"></script>
 </body>
 </html>
