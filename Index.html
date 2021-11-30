@@ -10,9 +10,34 @@
 </head>
 <body>
 
-    <div id="bubbleDiv"></div>
+    <script>
+        function Choose(showID){
+          let hideID = document.getElementsByClassName("hiddenElement");
+          for(let i = 0; i < hideID.length; i++){
+            hideID[i].style.display = "none";
+            console.log("hide " + i)
+            document.getElementById(showID[i]).style.display = "block";
+            console.log("show " + i)
+          }
+        }
+    </script>
     
-    <div id="graphDiv"></div>
+    <div class="mainDiv">
+        <div class="sidebar">
+            <br>
+            <h1>Meny</h1>
+            <br> <br>
+            <a href="#vannstand" onclick="Choose(['vannstand'])">Something rom #1</a>
+            <br>
+            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #2</a>
+            <br>
+            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
+        </div>
+        <div id="bubbleDiv"></div>
+
+
+    </div>
+
 
     <script src="script.js"></script>
     <script src="animation.js"></script>
