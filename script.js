@@ -1,8 +1,14 @@
 function powerPrice(){
     return fetch("https://innafjord.azurewebsites.net/api/PowerPrice").then(r =>r.json());
 }
+function powerPriceAll(){
+    return fetch("https://innafjord.azurewebsites.net/api/PowerPrice/all").then(r =>r.json());
+}
 function waterInflux(){
     return fetch("https://innafjord.azurewebsites.net/api/WaterInflux").then(r =>r.json());
+}
+function waterInfluxAll(){
+    return fetch("https://innafjord.azurewebsites.net/api/WaterInflux/all").then(r =>r.json());
 }
 function groupState(){
     return fetch("https://innafjord.azurewebsites.net/api/GroupState", {
