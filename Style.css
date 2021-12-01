@@ -127,7 +127,7 @@ a {
 #turbinpannel{
     position: absolute;
     z-index: 100;
-    top: 5vh;
+    top: calc((100vh - 710px) / 2);
     left: 10%;
     width: 1185px;
     height: 710px;
