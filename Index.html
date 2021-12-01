@@ -10,17 +10,19 @@
 </head>
 <body>
 
-    <!-- <script>
+    <script>
         function Choose(showID){
           let hideID = document.getElementsByClassName("hiddenElement");
           for(let i = 0; i < hideID.length; i++){
             hideID[i].style.display = "none";
             console.log("hide " + i)
+          }
+            for(let i = 0; i < hideID.length; i++){
             document.getElementById(showID[i]).style.display = "block";
             console.log("show " + i)
           }
         }
-    </script> -->
+    </script>
     
     <div class="mainDiv">
         <div id="sidebar">
@@ -32,13 +34,56 @@
             <br>
             <h1>Meny</h1>
             <br> <br>
-            <a href="#vannstand" onclick="Choose(['vannstand'])">Something rom #1</a>
+            <a href="#" onclick="Choose(['vannstand1'])">Something rom #1</a>
             <br>
-            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #2</a>
+            <a href="#" onclick="Choose(['vannstand2'])">Something rom #2</a>
             <br>
-            <a href="#meg" onclick="Choose(['deg','meg'])">Something rom #3</a>
+            <a href="#" onclick="Choose(['vannstand3'])">Something rom #3</a>
         </div>
-        <div id="bubbleDiv"></div>
+
+        <div id="bubbleDiv">
+            <div id="vannstand1" class="rom1 hiddenElement">
+                <script>
+                    var data = [
+                        {
+                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                            y: [20, 32, 40],
+                            type: 'bar'
+                        }
+                    ];
+                    Plotly.newPlot('vannstand1', data);
+                </script>
+            </div>
+
+            <div id="vannstand2" class="rom2 hiddenElement">
+                <script>
+                    var data = [
+                        {
+                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                            y: [33, 2, 24],
+                            type: 'bar'
+                        }
+                    ];
+                    Plotly.newPlot('vannstand2', data);
+                </script>
+            </div>
+
+
+            <div id="vannstand3" class="rom3 hiddenElement">
+                <script>
+                    var data = [
+                        {
+                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                            y: [9, 40, 40],
+                            type: 'bar'
+                        }
+                    ];
+                    Plotly.newPlot('vannstand3', data);
+                </script>
+            </div>
+
+        </div>
+
         <button id="turbin_tab"><img src="media/arrow.png"></button>
         <div id="turbinpannel">
             <div></div>
@@ -57,7 +102,6 @@
             <div></div>
             <div></div>
         </div>
-
 
     </div>
 
