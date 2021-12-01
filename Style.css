@@ -72,5 +72,42 @@ a {
     height: 4px;
     background-color: black;
 }
+/*  */
+
+
+/* turbin tab */
+#turbin_tab{
+    position: absolute;
+    z-index: 100;
+    right: 0px;
+    top: calc(50vh - 50px/2);
+    height: 60px;
+    width: 30px;
+}
+
+#turbin_tab > img{
+    max-width:100%;
+    max-height:100%;
+}
+
+#turbinpannel{
+    position: absolute;
+    z-index: 100;
+    top: 5vh;
+    left: 10%;
+    width: 1185px;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+#turbinpannel > div{
+    border: 2px solid black;
+    width: 233px;
+    height: 233px
+}
 
 /*  */
