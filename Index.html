@@ -16,6 +16,8 @@
           for(let i = 0; i < hideID.length; i++){
             hideID[i].style.display = "none";
             console.log("hide " + i)
+          }
+            for(let i = 0; i < hideID.length; i++){
             document.getElementById(showID[i]).style.display = "block";
             console.log("show " + i)
           }
@@ -36,7 +38,7 @@
             <br>
             <a href="#" onclick="Choose(['vannstand2'])">Something rom #2</a>
             <br>
-            <a href="#" onclick="Choose(['deg','meg'])">Something rom #3</a>
+            <a href="#" onclick="Choose(['vannstand3'])">Something rom #3</a>
         </div>
         <div id="bubbleDiv">
             <div id="vannstand1" class="rom1 hiddenElement">
@@ -62,6 +64,19 @@
                         }
                     ];
                     Plotly.newPlot('vannstand2', data);
+                </script>
+            </div>
+
+            <div id="vannstand3" class="rom3 hiddenElement">
+                <script>
+                    var data = [
+                        {
+                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                            y: [9, 40, 40],
+                            type: 'bar'
+                        }
+                    ];
+                    Plotly.newPlot('vannstand3', data);
                 </script>
             </div>
 
