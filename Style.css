@@ -58,39 +58,45 @@ a {
     display: flex;
     flex-direction: row;
     background-color: lightgreen;
-    display: none;
     height: 100%;
     width: 1100px;
     margin-top: 7vh;
     margin-left: 70px;
     margin-bottom: 7vh;
     z-index: 100;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 .rom2 {
     display: flex;
     flex-direction: row;
     background-color: lightgreen;
-    display: none;
     height: 100%;
     width: 1100px;
     margin-top: 7vh;
     margin-left: 70px;
     margin-bottom: 7vh;
     z-index: 100;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 .rom3 {
     display: flex;
     flex-direction: row;
     background-color: lightgreen;
-    display: none;
     height: 100%;
     width: 1100px;
     margin-top: 7vh;
     margin-left: 70px;
     margin-bottom: 7vh;
     z-index: 100;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 

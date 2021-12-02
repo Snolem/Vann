@@ -15,10 +15,12 @@
           let hideID = document.getElementsByClassName("hiddenElement");
           for(let i = 0; i < hideID.length; i++){
             hideID[i].style.display = "none";
+            hideID[i].style.opacity = "0";
             console.log("hide " + i)
           }
             for(let i = 0; i < hideID.length; i++){
             document.getElementById(showID[i]).style.display = "block";
+            document.getElementById(showID[i]).style.opacity = "50";
             console.log("show " + i)
           }
         }
