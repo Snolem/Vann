@@ -147,7 +147,17 @@ a {
 #turbinpannel > div{
     border: 2px solid black;
     width: 233px;
-    height: 233px
+    height: 233px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#turbinpannel > div > img{
+    max-width: 90%;
+    max-height: 90%;
+    transform: rotate(0deg);
 }
 
 /*  */
