@@ -234,7 +234,8 @@ a.button4:hover{
 #turbin_tab{
     position: absolute;
     z-index: 100;
-    right: 0px;
+    left: calc(100% - 30px);
+    transition: left 1s;
     top: calc(50vh - 50px/2);
     height: 60px;
     width: 30px;
@@ -249,7 +250,8 @@ a.button4:hover{
     position: absolute;
     z-index: 100;
     top: calc((100vh - 710px) / 2);
-    left: 10%;
+    left: 100%;
+    transition: left 1s;
     width: 1185px;
     height: 710px;
     background-color: rgba(0, 0, 0, 0.3);

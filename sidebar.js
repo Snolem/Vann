@@ -4,10 +4,10 @@ let burgerDivs = document.querySelectorAll("#menuButton > div");
 let sidebarButton = document.getElementById("menuButton");
 sidebarButton.addEventListener("click", inOutSidebar);
 
-let inoutcounter = 1;
+let inoutcounter_sidebar = 1;
 function inOutSidebar() {
-    inoutcounter++;
-    if (inoutcounter % 2 == 0){
+    inoutcounter_sidebar++;
+    if (inoutcounter_sidebar % 2 == 0){
         sidebar.style.width = "50px";
         for (let i = 0; i < burgerDivs.length; i++){
             burgerDivs[i].style.width = "29px";

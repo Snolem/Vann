@@ -63,3 +63,25 @@ setInterval(() => {
     }
     rotation++;
 }, 10);
+
+
+// under denne kommentaren er in og ut av skjermen animasjon over er panelet
+
+
+const turbin_tab_BUTTON = document.getElementById("turbin_tab");
+turbin_tab_BUTTON.addEventListener("click", inOutTurbineTab);
+const turbin_tab_DIV = document.getElementById("turbinpannel");
+
+let inoutcounter_turbinpanel = 1;
+function inOutTurbineTab() {
+    inoutcounter_turbinpanel++;
+    if (inoutcounter_turbinpanel % 2 == 0){
+        turbin_tab_DIV.style.left = "calc((100% - 1185px) / 2)";
+        turbin_tab_BUTTON.style.left = "calc(((100% - 1185px) / 2) - 30px)";
+        turbin_tab_BUTTON.childNodes[0].src = "media/arrow_right.png";
+    } else {
+        turbin_tab_DIV.style.left = "100%";
+        turbin_tab_BUTTON.style.left = "calc(100% - 30px)";
+        turbin_tab_BUTTON.childNodes[0].src= "media/arrow_left.png";
+    }
+}
