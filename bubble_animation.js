@@ -27,7 +27,7 @@ setInterval(() => {
         if (currentStyle < -25){
             bubbles[i].remove();
         } else {
-            bubbles[i].style.top = (parseFloat(bubbles[i].style.top) - 0.05) + "vh";
+            bubbles[i].style.top = (currentStyle - 0.05) + "vh";
         }
     }
 }, 10);
