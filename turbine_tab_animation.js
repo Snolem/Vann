@@ -20,7 +20,10 @@ setInterval(() => {
     let turbiner = document.querySelectorAll("#turbinpannel > div > img");
     for (let i = 0; i < turbiner.length; i++){
         if (turbineState[i].capacityUsage){
+            turbiner[i].src = "media/turbin_på.png";
             turbiner[i].style.transform = "rotate(" + (rotation + 1) + "deg)";
+        } else {
+            turbiner[i].src = "media/turbin_av.png";
         }
     }
     rotation++;
