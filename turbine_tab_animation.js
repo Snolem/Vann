@@ -7,23 +7,27 @@ function turbines(){
     }).then(r =>r.json());
 }
 
+const turbiner = document.querySelectorAll("#turbinpannel > div > img");
 let rotation = 0;
 let turbineState = new Array(20).fill({'capacityUsage': 0}); // so i dont get undefined, when not having the values
 
 setInterval(() => {
     turbines().then(value => {
         turbineState = value.slice();
+        for (let i = 0; i < turbiner.length; i++){
+            if (turbineState[i].capacityUsage){
+                turbiner[i].src = "media/turbin_på.png";
+            } else {
+                turbiner[i].src = "media/turbin_av.png";
+            }
+        }
     });
 }, 1000);
 
 setInterval(() => {
-    let turbiner = document.querySelectorAll("#turbinpannel > div > img");
     for (let i = 0; i < turbiner.length; i++){
         if (turbineState[i].capacityUsage){
-            turbiner[i].src = "media/turbin_på.png";
             turbiner[i].style.transform = "rotate(" + (rotation + 1) + "deg)";
-        } else {
-            turbiner[i].src = "media/turbin_av.png";
         }
     }
     rotation++;
