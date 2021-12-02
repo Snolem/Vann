@@ -25,9 +25,3 @@ setInterval(() => {
     }
     rotation++;
 }, 10);
-
-turbines().then(value => {
-    for (i = 0; i < value.length; i++){
-        console.log("turbin " + (i+1) + " capacityUsage: " + value[i].capacityUsage);
-    }
-});
