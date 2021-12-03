@@ -267,6 +267,24 @@ a.button4:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.1s linear;
+}
+
+#turbinpannel > div:hover{
+    max-width: 90%;
+    max-height: 90%;
+    transform: rotate(0deg);
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    
+}
+
+#turbinpannel > div:active{
+    max-width: 90%;
+    max-height: 90%;
+    transform: rotate(0deg);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 #turbinpannel > div > img{
