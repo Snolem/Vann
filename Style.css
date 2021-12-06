@@ -239,11 +239,13 @@ a.button4:hover{
     top: calc(50vh - 50px/2);
     height: 60px;
     width: 30px;
+    cursor: pointer;
 }
 
 #turbin_tab > img{
     max-width:100%;
     max-height:100%;
+    cursor: pointer;
 }
 
 #turbinpannel{
@@ -274,18 +276,12 @@ a.button4:hover{
 }
 
 #turbinpannel > div:hover{
-    max-width: 90%;
-    max-height: 90%;
-    transform: rotate(0deg);
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
     
 }
 
 #turbinpannel > div:active{
-    max-width: 90%;
-    max-height: 90%;
-    transform: rotate(0deg);
     background-color: rgba(255, 255, 255, 0.5);
 }
 
