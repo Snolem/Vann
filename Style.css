@@ -68,7 +68,7 @@ a {
     transition: width 0.8s;
 }
 
-a.button1 {
+a.button {
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid #FFFFFF;
@@ -83,7 +83,7 @@ a.button1 {
     transition: all 0.2s;
 }
 
-a.button1:hover{
+a.button:hover{
     color: #000000;
     background-color: #FFFFFF;
 }
@@ -108,33 +108,6 @@ a.button1:hover{
     display: none;
 }
 
-a.button2 {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid #FFFFFF;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
-    text-align: left;
-    transition: all 0.2s;
-}
-
-a.button2:hover{
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-@media all and (max-width:30em){
-    a.button2{
-    display: block;
-    margin: 0.4em auto;
-    }
-}
-
 .income {
     display: flex;
     flex-direction: row;
@@ -148,33 +121,6 @@ a.button2:hover{
     display: none;
 }
 
-a.button3 {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid #FFFFFF;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
-    text-align: left;
-    transition: all 0.2s;
-}
-
-a.button3:hover{
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-@media all and (max-width:30em) {
-    a.button3{
-        display: block;
-        margin: 0.4em auto;
-    }
-}
-
 .powerPrice {
     display: flex;
     flex-direction: row;
@@ -186,33 +132,6 @@ a.button3:hover{
     margin-bottom: 7vh;
     z-index: 100;
     display: none;
-}
-
-a.button4 {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid #FFFFFF;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto',sans-serif;
-    font-weight: 300;
-    color: #FFFFFF;
-    text-align: left;
-    transition: all 0.2s;
-}
-
-a.button4:hover{
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-@media all and (max-width:30em) {
-    a.button4{
-        display: block;
-        margin: 0.4em auto;
-    }
 }
 
 .waterInflux {
