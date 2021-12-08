@@ -52,7 +52,7 @@ a {
 
 #menuButton > div{
     margin: 8px;
-    width: 200px;
+    width: 29px;
     transition: width 0.8s;
     height: 4px;
     background-color: black;
@@ -63,12 +63,18 @@ a {
     flex-direction: column;
     background-image: linear-gradient(rgb(112, 182, 182), rgb(29, 49, 49));
     height: 100vh;
-    width: 250px;
+    width: 50px;
     z-index: 100;
     transition: width 0.8s;
 }
 
+#sidebarContent {
+    opacity: 0%;
+    transition: opacity 0.8s;
+}
+
 a.button {
+    width: 100%;
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid #FFFFFF;
