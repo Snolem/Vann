@@ -54,8 +54,8 @@ function inOutTurbineTab() {
             inOutSidebar();
         }
         turbinPanelOpen = true;
-        turbin_tab_DIV.style.left = "calc((100% - 1185px) / 2)";
-        turbin_tab_BUTTON.style.left = "calc(((100% - 1185px) / 2) - 30px)";
+        turbin_tab_DIV.style.left = "calc((100% - 1185px) / 2 + 50px / 2";
+        turbin_tab_BUTTON.style.left = "calc(((100% - 1185px) / 2 + 50px / 2) - 30px)";
         turbin_tab_BUTTON.childNodes[0].src = "media/arrow_right.png";
     } else {
         turbinPanelOpen = false;
