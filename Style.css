@@ -44,7 +44,7 @@ a {
     flex-direction: row;
 }
 
-/* Sidebar, knapper og content */
+/* Sidebar, tittel, knapper og content */
 
 #menuButton{
     height: 50px;
@@ -68,9 +68,14 @@ a {
     transition: width 0.8s;
 }
 
+
 #sidebarContent {
     opacity: 0%;
     transition: opacity 0.8s;
+}
+
+.title {
+    margin-left: 10%;
 }
 
 a.button {
@@ -152,7 +157,7 @@ a.button:hover{
     z-index: 100;
     display: none;
 }
-/* Slutt på sidebar, knapper og content */
+/* Slutt på sidebar, tittel, knapper og content */
 
 
 /* turbin tab */
