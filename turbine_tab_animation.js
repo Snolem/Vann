@@ -1,29 +1,3 @@
-function turbines(){
-    return fetch("https://innafjord.azurewebsites.net/api/Turbines", {
-        headers: {
-            "GroupId": "Pavens vannkraftarbeidere",
-            "GroupKey": "/kJ+p7iy1kShleUuDqPNEA=="
-        }
-    }).then(r =>r.json());
-}
-
-let turbineList = [];
-turbines().then(value => {
-    for (i = 0; i < value.length; i++){
-        turbineList.push(value[i].id)
-    }
-});
-
-function changeTurbineUsage(turbineIndex, usage){
-    fetch("https://innafjord.azurewebsites.net/api/Turbines/" + turbineList[turbineIndex] + "?capacityUsage=" + usage, {
-        method: "PUT",
-        headers: {
-            "GroupId": "Pavens vannkraftarbeidere",
-            "GroupKey": "/kJ+p7iy1kShleUuDqPNEA=="
-        }
-    });
-}
-
 function changeTurbineState(e){
     const target = Array.from(turbiner).indexOf(e.target);
     const target_src = turbiner[target].src;
