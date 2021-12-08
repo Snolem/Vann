@@ -35,7 +35,7 @@
 
             <div id="sidebarContent">
                 <br>
-                <img class="title" src="Holywater.png" width="70%">
+                <img class="title" src="Holywater.png" width="70%" onclick="Choose([''])">
                 <br> <br>
                 <a href="#" class="button" onclick="Choose(['waterLevel'])">Water Level</a>
                 <br>
@@ -50,15 +50,33 @@
         <div id="bubbleDiv">
             <div id="waterLevel" class="waterLevel hiddenElement">
                 <script>
-                    waterInflux().then(value => {
-                        var data = [
-                            {
-                                x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                                y: [20, value, 40],
-                                type: 'bar'
-                            }
-                        ]
-                        Plotly.newPlot('waterLevel', data);
+                    groupState().then(value => {
+                        var trace1 = {
+                            x: ['Vannstand'],
+                            y: [20],
+                            name: 'Min. Vannstand',
+                            type: 'bar'
+                        };
+
+                        var trace2 = {
+                            x: ['Vannstand'],
+                            y: [value.waterLevel],
+                            name: 'Vannstand',
+                            type: 'bar'
+                        };
+
+                        var trace3 = {
+                            x: ['Vannstand'],
+                            y: [40],
+                            name: 'Max. Vannstand',
+                            type: 'bar'
+                        };
+
+                        var data = [trace1, trace2, trace3];
+
+                        var layout = {barmode: 'group'};
+
+                        Plotly.newPlot('waterLevel', data, layout);
                     });
                 </script>
             </div>
