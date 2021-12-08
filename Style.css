@@ -55,7 +55,7 @@ a {
     width: 29px;
     transition: width 0.8s;
     height: 4px;
-    background-color: black;
+    background-color: rgb(49, 102, 155);
 }
 
 #sidebar {
@@ -70,8 +70,17 @@ a {
 
 
 #sidebarContent {
-    opacity: 0%;
-    transition: opacity 0.8s;
+    display: none;
+    /* transition: opacity 0.8s; */
+    /* animation: fade_in 0.8s forwards; */
+}
+@keyframes fade_in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+@keyframes fade_out {
+    0% {opacity: 1}
+    100% {opacity: 0}
 }
 
 .title {
@@ -196,6 +205,7 @@ a.button:hover{
 }
 
 #turbinpannel > div{
+    overflow: hidden;
     border: 2px solid black;
     width: 233px;
     height: 233px;
