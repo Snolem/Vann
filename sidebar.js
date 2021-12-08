@@ -4,22 +4,29 @@ const sidebarContent = document.getElementById("sidebarContent");
 
 const sidebarButton = document.getElementById("menuButton");
 sidebarButton.addEventListener("click", inOutSidebar);
+let sidebarOpen = false;
 
 let inoutcounter_sidebar = 0;
 function inOutSidebar() {
     inoutcounter_sidebar++;
     if (inoutcounter_sidebar % 2 == 0){
+        sidebarOpen = false;
         sidebar.style.width = "50px";
         for (let i = 0; i < burgerDivs.length; i++){
             burgerDivs[i].style.width = "29px";
         }
-        sidebarContent.style.opacity = "0%";
+        sidebarContent.style.animation = "fade_out 0.8s forwards";
+        setTimeout(() => { sidebarContent.style.display = "none" }, 800);
     } else {
+        if (turbinPanelOpen == true){
+            inOutTurbineTab();
+        }
+        sidebarOpen = true;
         sidebar.style.width = "250px";
         for (let i = 0; i < burgerDivs.length; i++){
             burgerDivs[i].style.width = "200px";
         }
-        sidebarContent.style.opacity = "100%";
-
+        sidebarContent.style.animation = "fade_in 0.8s forwards";
+        sidebarContent.style.display = "block";
     }
 }
