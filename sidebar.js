@@ -16,7 +16,7 @@ function inOutSidebar() {
             burgerDivs[i].style.width = "29px";
         }
         sidebarContent.style.animation = "fade_out 0.8s forwards";
-        setTimeout(() => { sidebarContent.style.display = "none" }, 800);
+        setTimeout(() => { if (sidebarOpen == false) {sidebarContent.style.display = "none" }}, 800);
     } else {
         if (turbinPanelOpen == true){
             inOutTurbineTab();
