@@ -8,6 +8,10 @@ body{
     overflow: hidden;
 }
 
+p {
+ font-size: 80px;
+}
+
 /* Dette er styles for bobler */
 #bubbleDiv {
     height: 100vh;
@@ -119,33 +123,57 @@ a.button:hover{
     }
 }
 
-.waterLevel {
-    display: flex;
+.waterLevelRoom {
+    display: none;
     flex-direction: row;
     background-color: lightgreen;
     height: 700px;
     width: 1100px;
-
     /* position: absolute;
     left: calc((100% - 1100px) / 2);*/
     /* margin-top: 7vh;
     margin-left: 70px;
     margin-bottom: 7vh; */
     z-index: 100;
-    display: none;
+}
+
+.waterLevel {
+    width: 550px;
+    height: 700px;
+}
+
+.waterInfluxAndTurbinCount {
+    display: flex;
+    flex-direction: column;
+    background-color: cornflowerblue;
+    width: 550px;
+    height: 700px;
+}
+
+.waterInflux {
+    display: flex;
+    background-color: crimson;
+}
+
+.turbinCount {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(to top left, rgb(192, 192, 192), white, white);
+    width: 550px;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    border: black;
+    border-width: 4px;
 }
 
 .income {
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: lightgreen;
     height: 700px;
     width: 1100px;
-    margin-top: 7vh;
-    margin-left: 70px;
-    margin-bottom: 7vh;
     z-index: 100;
-    display: none;
 }
 
 .powerPrice {
@@ -154,25 +182,10 @@ a.button:hover{
     background-color: lightgreen;
     height: 700px;
     width: 1100px;
-    margin-top: 7vh;
-    margin-left: 70px;
-    margin-bottom: 7vh;
     z-index: 100;
     display: none;
 }
 
-.waterInflux {
-    display: flex;
-    flex-direction: row;
-    background-color: lightgreen;
-    height: 700px;
-    width: 1100px;
-    margin-top: 7vh;
-    margin-left: 70px;
-    margin-bottom: 7vh;
-    z-index: 100;
-    display: none;
-}
 /* Slutt på sidebar, tittel, knapper og content */
 
 

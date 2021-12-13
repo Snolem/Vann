@@ -19,7 +19,7 @@
             console.log("hide " + i)
           }
             for(let i = 0; i < hideID.length; i++){
-            document.getElementById(showID[i]).style.display = "block";
+            document.getElementById(showID[i]).style.display = "flex";
             console.log("show " + i)
           }
         }
@@ -37,48 +37,82 @@
                 <br>
                 <img class="title" src="media/Holywater.png" width="70%" onclick="Choose([''])">
                 <br> <br>
-                <a href="#" class="button" onclick="Choose(['waterLevel'])">Water Level</a>
+                <a href="#" class="button" onclick="Choose(['waterLevelRoom'])">Water Level</a>
                 <br>
                 <a href="#" class="button" onclick="Choose(['income'])">Income</a>
                 <br>
                 <a href="#" class="button" onclick="Choose(['powerPrice'])">Power Price</a>
-                <br>
-                <a href="#" class="button" onclick="Choose(['waterInflux'])">Water Influx</a>
             </div>
         </div>
 
         <div id="bubbleDiv">
-            <div id="waterLevel" class="waterLevel hiddenElement">
-                <script>
-                    groupState().then(value => {
-                        var trace1 = {
-                            x: ['Vannstand'],
-                            y: [20],
-                            name: 'Min. Vannstand',
-                            type: 'bar'
-                        };
+            <div id="waterLevelRoom" class="waterLevelRoom hiddenElement">
+                <div id="waterLevel" class="waterLevel">
+                    <script>
+                        groupState().then(value => {
+                            var trace1 = {
+                                x: ['Vannstand'],
+                                y: [20],
+                                name: 'Min. Vannstand',
+                                type: 'bar'
+                            };
 
-                        var trace2 = {
-                            x: ['Vannstand'],
-                            y: [value.waterLevel],
-                            name: 'Vannstand',
-                            type: 'bar'
-                        };
+                            var trace2 = {
+                                x: ['Vannstand'],
+                                y: [value.waterLevel],
+                                name: 'Vannstand',
+                                type: 'bar'
+                            };
 
-                        var trace3 = {
-                            x: ['Vannstand'],
-                            y: [40],
-                            name: 'Max. Vannstand',
-                            type: 'bar'
-                        };
+                            var trace3 = {
+                                x: ['Vannstand'],
+                                y: [40],
+                                name: 'Max. Vannstand',
+                                type: 'bar'
+                            };
 
-                        var data = [trace1, trace2, trace3];
+                            var data = [trace1, trace2, trace3];
 
-                        var layout = {barmode: 'group'};
+                            var layout = {
+                                barmode: 'group',
+                                autosize: false,
+                                width: 550,
+                                height: 700,
+                            };
 
-                        Plotly.newPlot('waterLevel', data, layout);
-                    });
-                </script>
+                            Plotly.newPlot('waterLevel', data, layout);
+                        });
+                    </script>
+                </div>
+
+                <div class="waterInfluxAndTurbinCount">
+                    <div id="waterInflux" class="waterInflux">
+                        <script>
+                            waterInflux().then(value => {
+                                var trace1 = {
+                                    x: [1, 2, 3, 4],
+                                    y: [value, 200, value, 250],
+                                    type: 'scatter'
+                                    };
+
+                                var data = [trace1];
+
+                                var layout = {
+                                        autosize: false,
+                                        width: 550,
+                                        height: 350,
+                                    };
+
+                                Plotly.newPlot('waterInflux', data, layout);
+                            });
+                        </script>
+                    </div>
+
+                    <div class="turbinCount">
+                        <img src="media/turbin.png" height="180px">
+                        <p>= 12x</p>
+                    </div>
+                </div>
             </div>
 
             <div id="income" class="income hiddenElement">
@@ -105,19 +139,6 @@
                         }
                     ];
                     Plotly.newPlot('powerPrice', data);
-                </script>
-            </div>
-
-            <div id="waterInflux" class="waterInflux hiddenElement">
-                <script>
-                    var data = [
-                        {
-                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                            y: [38, 20, 16],
-                            type: 'bar'
-                        }
-                    ];
-                    Plotly.newPlot('waterInflux', data);
                 </script>
             </div>
 
