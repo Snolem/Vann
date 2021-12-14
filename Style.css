@@ -12,6 +12,12 @@ p {
  font-size: 80px;
 }
 
+#filter_blur{
+    z-index: 100;
+    filter: blur(0px);
+    transition: filter 0.8s;
+}
+
 /* Dette er styles for bobler */
 #bubbleDiv {
     height: 100vh;

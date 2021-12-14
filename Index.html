@@ -42,123 +42,124 @@
         </div>
 
         <div id="bubbleDiv">
-            <div id="waterLevelRoom" class="waterLevelRoom hiddenElement">
-                <div id="waterLevel" class="waterLevel">
-                    <script>
-                        groupState().then(value => {
-                            var trace1 = {
-                                x: ['Vannstand'],
-                                y: [20],
-                                name: 'Min. Vannstand',
-                                type: 'bar'
-                            };
-
-                            var trace2 = {
-                                x: ['Vannstand'],
-                                y: [value.waterLevel],
-                                name: 'Vannstand',
-                                type: 'bar'
-                            };
-
-                            var trace3 = {
-                                x: ['Vannstand'],
-                                y: [40],
-                                name: 'Max. Vannstand',
-                                type: 'bar'
-                            };
-
-                            var data = [trace1, trace2, trace3];
-
-                            var layout = {
-                                barmode: 'group',
-                                autosize: false,
-                                width: 593,
-                                height: 710,
-                            };
-
-                            Plotly.newPlot('waterLevel', data, layout);
-                        });
-                    </script>
-                </div>
-
-                <div class="waterInfluxAndTurbinCount">
-                    <div id="waterInflux" class="waterInflux">
+            <div id="filter_blur">
+                <div id="waterLevelRoom" class="waterLevelRoom hiddenElement">
+                    <div id="waterLevel" class="waterLevel">
                         <script>
-                            waterInflux().then(value => {
+                            groupState().then(value => {
                                 var trace1 = {
-                                    x: [1, 2, 3, 4],
-                                    y: [value, 200, value, 250],
-                                    type: 'scatter'
-                                    };
+                                    x: ['Vannstand'],
+                                    y: [20],
+                                    name: 'Min. Vannstand',
+                                    type: 'bar'
+                                };
 
-                                var data = [trace1];
+                                var trace2 = {
+                                    x: ['Vannstand'],
+                                    y: [value.waterLevel],
+                                    name: 'Vannstand',
+                                    type: 'bar'
+                                };
+
+                                var trace3 = {
+                                    x: ['Vannstand'],
+                                    y: [40],
+                                    name: 'Max. Vannstand',
+                                    type: 'bar'
+                                };
+
+                                var data = [trace1, trace2, trace3];
 
                                 var layout = {
-                                        autosize: false,
-                                        width: 593,
-                                        height: 355,
-                                    };
+                                    barmode: 'group',
+                                    autosize: false,
+                                    width: 593,
+                                    height: 710,
+                                };
 
-                                Plotly.newPlot('waterInflux', data, layout);
+                                Plotly.newPlot('waterLevel', data, layout);
                             });
                         </script>
                     </div>
 
-                    <div class="turbinCount">
-                        <img src="media/turbin.png" height="180px">
-                        <p>= 12x</p>
+                    <div class="waterInfluxAndTurbinCount">
+                        <div id="waterInflux" class="waterInflux">
+                            <script>
+                                waterInflux().then(value => {
+                                    var trace1 = {
+                                        x: [1, 2, 3, 4],
+                                        y: [value, 200, value, 250],
+                                        type: 'scatter'
+                                        };
+
+                                    var data = [trace1];
+
+                                    var layout = {
+                                            autosize: false,
+                                            width: 593,
+                                            height: 355,
+                                        };
+
+                                    Plotly.newPlot('waterInflux', data, layout);
+                                });
+                            </script>
+                        </div>
+
+                        <div class="turbinCount">
+                            <img src="media/turbin.png" height="180px">
+                            <p>= 12x</p>
+                        </div>
                     </div>
                 </div>
+
+                <div id="income" class="income hiddenElement">
+                    <script>
+                        var data = [
+                            {
+                                x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                                y: [33, 2, 24],
+                                type: 'bar'
+                            }
+                        ];
+                        Plotly.newPlot('income', data);
+                    </script>
+                </div>
+
+
+                <div id="powerPrice" class="powerPrice hiddenElement">
+                    <script>
+                        var data = [
+                            {
+                                x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
+                                y: [9, 40, 40],
+                                type: 'bar'
+                            }
+                        ];
+                        Plotly.newPlot('powerPrice', data);
+                    </script>
+                </div>
+
             </div>
 
-            <div id="income" class="income hiddenElement">
-                <script>
-                    var data = [
-                        {
-                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                            y: [33, 2, 24],
-                            type: 'bar'
-                        }
-                    ];
-                    Plotly.newPlot('income', data);
-                </script>
+            <button id="turbin_tab"><img src="media/arrow_left.png"></button>
+            <div id="turbinpannel">
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div><img src="media/turbin.png"></div>
+                <div></div>
             </div>
-
-
-            <div id="powerPrice" class="powerPrice hiddenElement">
-                <script>
-                    var data = [
-                        {
-                            x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                            y: [9, 40, 40],
-                            type: 'bar'
-                        }
-                    ];
-                    Plotly.newPlot('powerPrice', data);
-                </script>
-            </div>
-
         </div>
-
-        <button id="turbin_tab"><img src="media/arrow_left.png"></button>
-        <div id="turbinpannel">
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div><img src="media/turbin.png"></div>
-            <div></div>
-        </div>
-
     </div>
 
 
