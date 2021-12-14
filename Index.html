@@ -48,42 +48,45 @@
                             const config = {
                                 displayModeBar: false,
                             };
-                            groupState().then(value => {
-                                var trace1 = {
-                                    x: ['Vannstand'],
-                                    y: [20],
-                                    name: 'Min. Vannstand',
-                                    type: 'bar'
-                                };
+                            setInterval(() => {
+                                groupState().then(value => {
+                                    var trace1 = {
+                                        x: [' '],
+                                        y: [20],
+                                        name: 'Min. Vannstand',
+                                        type: 'bar'
+                                    };
 
-                                var trace2 = {
-                                    x: ['Vannstand'],
-                                    y: [value.waterLevel],
-                                    name: 'Vannstand',
-                                    type: 'bar'
-                                };
+                                    var trace2 = {
+                                        x: [' '],
+                                        y: [value.waterLevel],
+                                        name: 'Vannstand',
+                                        type: 'bar'
+                                    };
 
-                                var trace3 = {
-                                    x: ['Vannstand'],
-                                    y: [40],
-                                    name: 'Max. Vannstand',
-                                    type: 'bar'
-                                };
+                                    var trace3 = {
+                                        x: [' '],
+                                        y: [40],
+                                        name: 'Max. Vannstand',
+                                        type: 'bar'
+                                    };
 
-                                var data = [trace1, trace2, trace3];
+                                    var data = [trace1, trace2, trace3];
 
 
-                                var layout = {
-                                    barmode: 'group',
-                                    autosize: false,
-                                    width: 593,
-                                    height: 710,
-                                    xaxis: {fixedrange: true},
-                                    yaxis: {fixedrange: true}
-                                };
+                                    var layout = {
+                                        title: "Vannstand",
+                                        barmode: 'group',
+                                        autosize: false,
+                                        width: 593,
+                                        height: 710,
+                                        xaxis: {fixedrange: true},
+                                        yaxis: {fixedrange: true}
+                                    };
 
-                                Plotly.newPlot('waterLevel', data, layout, config);
-                            });
+                                    Plotly.newPlot('waterLevel', data, layout, config);
+                                });
+                            }, 1000);
                         </script>
                     </div>
                 
@@ -91,25 +94,35 @@
                     <div class="waterInfluxAndTurbinCount">
                         <div id="waterInflux" class="waterInflux">
                             <script>
-                                groupState().then(value => {
-                                    var trace1 = {
-                                        x: [1, 2, 3, 4],
-                                        y: [value, value, value, value],
-                                        type: 'scatter'
+                                let waterInfluxList = [];
+                                setInterval(() => {
+                                    waterInflux().then(value => {
+                                        waterInfluxList.push(value);
+
+                                        var trace1 = {
+                                            y: waterInfluxList,
+                                            type: 'scatter'
                                         };
 
-                                    var data = [trace1];
+                                        var data = [trace1];
 
-                                    var layout = {
+                                        var layout = {
+                                            title: "Vanninnstrømning",
                                             autosize: false,
                                             width: 593,
                                             height: 355,
-                                            xaxis: {fixedrange: true},
+                                            xaxis: {
+                                                fixedrange: true,
+                                                showgrid: false,
+                                                zeroline: false,
+                                                visible: false,
+                                            },
                                             yaxis: {fixedrange: true}
                                         };
 
-                                    Plotly.newPlot('waterInflux', data, layout, config);
-                                });
+                                        Plotly.newPlot('waterInflux', data, layout, config);
+                                    });
+                                }, 1000);
                             </script>
                         </div>
 
