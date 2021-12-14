@@ -37,7 +37,6 @@
                 <img class="title" src="media/Holywater.png" width="70%" onclick="Choose([''])">
                 <a href="#" class="button" onclick="Choose(['waterLevelRoom'])">Water Level</a>
                 <a href="#" class="button" onclick="Choose(['income'])">Income</a>
-                <a href="#" class="button" onclick="Choose(['powerPrice'])">Power Price</a>
             </div>
         </div>
 
@@ -46,6 +45,9 @@
                 <div id="waterLevelRoom" class="waterLevelRoom hiddenElement">
                     <div id="waterLevel" class="waterLevel">
                         <script>
+                            const config = {
+                                displayModeBar: false,
+                            };
                             groupState().then(value => {
                                 var trace1 = {
                                     x: ['Vannstand'],
@@ -70,25 +72,29 @@
 
                                 var data = [trace1, trace2, trace3];
 
+
                                 var layout = {
                                     barmode: 'group',
                                     autosize: false,
                                     width: 593,
                                     height: 710,
+                                    xaxis: {fixedrange: true},
+                                    yaxis: {fixedrange: true}
                                 };
 
-                                Plotly.newPlot('waterLevel', data, layout);
+                                Plotly.newPlot('waterLevel', data, layout, config);
                             });
                         </script>
                     </div>
+                
 
                     <div class="waterInfluxAndTurbinCount">
                         <div id="waterInflux" class="waterInflux">
                             <script>
-                                waterInflux().then(value => {
+                                groupState().then(value => {
                                     var trace1 = {
                                         x: [1, 2, 3, 4],
-                                        y: [value, 200, value, 250],
+                                        y: [value, value, value, value],
                                         type: 'scatter'
                                         };
 
@@ -98,46 +104,27 @@
                                             autosize: false,
                                             width: 593,
                                             height: 355,
+                                            xaxis: {fixedrange: true},
+                                            yaxis: {fixedrange: true}
                                         };
 
-                                    Plotly.newPlot('waterInflux', data, layout);
+                                    Plotly.newPlot('waterInflux', data, layout, config);
                                 });
                             </script>
                         </div>
 
                         <div class="turbinCount">
-                            <img src="media/turbin.png" height="180px">
+                            <img src="media/turbin.png" height="190px">
                             <p>= 12x</p>
                         </div>
                     </div>
                 </div>
-
-                <div id="income" class="income hiddenElement">
-                    <script>
-                        var data = [
-                            {
-                                x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                                y: [33, 2, 24],
-                                type: 'bar'
-                            }
-                        ];
-                        Plotly.newPlot('income', data);
-                    </script>
-                </div>
+            </div>
 
 
-                <div id="powerPrice" class="powerPrice hiddenElement">
-                    <script>
-                        var data = [
-                            {
-                                x: ['Min. Vannstand', 'Vannstand', 'Max. Vannstand'],
-                                y: [9, 40, 40],
-                                type: 'bar'
-                            }
-                        ];
-                        Plotly.newPlot('powerPrice', data);
-                    </script>
-                </div>
+            <div id="income" class="income hiddenElement">
+                
+            </div>
 
             </div>
 
