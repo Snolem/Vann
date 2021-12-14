@@ -132,7 +132,7 @@ a.button:hover{
     flex-direction: row;
     background-color: lightgreen;
     height: 710px;
-    width: 1185px;
+    width: 1186px;
     /* position: absolute;
     left: calc((100% - 1100px) / 2);*/
     /* margin-top: 7vh;
@@ -143,16 +143,16 @@ a.button:hover{
 }
 
 .waterLevel {
-    width: 550px;
-    height: 700px;
+    width: 593px;
+    height: 710px;
 }
 
 .waterInfluxAndTurbinCount {
     display: flex;
     flex-direction: column;
     background-color: cornflowerblue;
-    width: 550px;
-    height: 700px;
+    width: 593px;
+    height: 710px;
 }
 
 .waterInflux {
@@ -164,8 +164,8 @@ a.button:hover{
     display: flex;
     flex-direction: row;
     background: linear-gradient(to top left, rgb(192, 192, 192), white, white);
-    width: 550px;
-    height: 350px;
+    width: 593px;
+    height: 355px;
     justify-content: center;
     align-items: center;
     border: black;
@@ -177,7 +177,7 @@ a.button:hover{
     flex-direction: row;
     background-color: lightgreen;
     height: 710px;
-    width: 1185px;
+    width: 1186px;
     z-index: 100;
     margin-left: 2px;
 }
@@ -187,7 +187,7 @@ a.button:hover{
     flex-direction: row;
     background-color: lightgreen;
     height: 710px;
-    width: 1185px;
+    width: 1186px;
     z-index: 100;
     display: none;
     margin-left: 2px;
