@@ -9,7 +9,7 @@ body{
 }
 
 p {
- font-size: 80px;
+ font-size: 90px;
 }
 
 /* Dette er styles for bobler */
@@ -179,17 +179,6 @@ a.button:hover{
     height: 710px;
     width: 1186px;
     z-index: 100;
-    margin-left: 2px;
-}
-
-.powerPrice {
-    display: flex;
-    flex-direction: row;
-    background-color: lightgreen;
-    height: 710px;
-    width: 1186px;
-    z-index: 100;
-    display: none;
     margin-left: 2px;
 }
 
