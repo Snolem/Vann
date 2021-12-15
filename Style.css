@@ -207,6 +207,38 @@ a.button:hover{
     margin-left: 2px;
 }
 
+.moneyAndEnvironmentCost {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 710px;
+    width: 593px;
+}
+
+/* .money {
+    display: flex;
+    flex-direction: row;
+    height: 236px;
+    width: 593px;
+    background-color: white;
+}
+
+.environmentCost {
+    display: flex;
+    flex-direction: row;
+    height: 238px;
+    width: 593px;
+    background-color: lightskyblue;
+}
+
+.moneyTotal {
+    display: flex;
+    flex-direction: row;
+    height: 236px;
+    width: 593px;
+    background-color: cornflowerblue;
+} */
+
 /* Slutt på sidebar, tittel, knapper og content */
 
 
