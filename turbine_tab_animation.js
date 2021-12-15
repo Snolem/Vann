@@ -32,7 +32,7 @@ setInterval(() => {
 setInterval(() => {
     for (let i = 0; i < turbiner.length; i++){
         if (turbineState[i].capacityUsage){
-            turbiner[i].style.transform = "rotate(" + (rotation + 1) + "deg)";
+            turbiner[i].style.transform = "rotate(" + rotation + "deg)";
         }
     }
     rotation+= 4;
