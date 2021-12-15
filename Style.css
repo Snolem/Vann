@@ -2,6 +2,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: sans-serif;
 }
 
 body{
@@ -72,6 +73,7 @@ a {
     transition: width 0.8s;
     height: 4px;
     background-color: rgb(49, 102, 155);
+    border-radius: 5px 5px;
 }
 
 #sidebar {
@@ -150,6 +152,9 @@ a.button:hover{
     margin-bottom: 7vh; */
     z-index: 100;
     margin-left: 2px;
+
+    border-radius: 100px 100px;
+    overflow: hidden;
 }
 
 .waterLevel {
@@ -168,6 +173,22 @@ a.button:hover{
 .waterInflux {
     display: flex;
     background-color: crimson;
+}
+
+#liveWaterinflux {
+    position: absolute;
+    left: calc(100% - 200px);
+    top: calc((100vh - 650px) / 2);
+    font-size: x-large;
+    color: rgb(40, 97, 151);
+}
+
+#livePowerprice{
+    position: absolute;
+    left: calc(100% - 200px);
+    top: calc((100vh - 650px) / 2);
+    font-size: x-large;
+    color: rgb(255, 100, 0);
 }
 
 .turbinCount {
@@ -209,6 +230,9 @@ a.button:hover{
     width: 1186px;
     z-index: 100;
     margin-left: 2px;
+
+    border-radius: 100px 100px;
+    overflow: hidden;
 }
 
 .moneyAndEnvironmentCost {

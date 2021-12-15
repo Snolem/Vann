@@ -12,16 +12,14 @@
 <body>
 
     <script>
+        let hideID = document.getElementsByClassName("hiddenElement");
         function Choose(showID){
-          let hideID = document.getElementsByClassName("hiddenElement");
-          for(let i = 0; i < hideID.length; i++){
-            hideID[i].style.display = "none";
-            console.log("hide " + i)
-          }
-            for(let i = 0; i < hideID.length; i++){
-            document.getElementById(showID[i]).style.display = "flex";
-            console.log("show " + i)
-          }
+            for (let i = 0; i < hideID.length; i++){
+                hideID[i].style.display = "none";
+            }
+            if (showID){
+                document.getElementById(showID).style.display = "flex";
+            }
         }
     </script>
     
@@ -34,9 +32,9 @@
             </button>
 
             <div id="sidebarContent">
-                <img class="title" src="media/Holywater.png" width="70%" onclick="Choose([''])">
-                <a href="#" class="button" onclick="Choose(['waterLevelRoom'])">Water Level</a>
-                <a href="#" class="button" onclick="Choose(['income'])">Income</a>
+                <img class="title" src="media/Holywater.png" width="70%" onclick="Choose()">
+                <a href="#" class="button" onclick="Choose('waterLevelRoom')">Vann</a>
+                <a href="#" class="button" onclick="Choose('income')">Penger</a>
             </div>
         </div>
 
@@ -111,15 +109,17 @@
 
                     <div class="waterInfluxAndTurbinCount">
                         <div id="waterInflux" class="waterInflux">
+                            <p id="liveWaterinflux">xxxx</p>
                             <script>
                                 let waterInfluxList = [];
                                 setInterval(() => {
                                     waterInflux().then(value => {
+                                        document.getElementById("liveWaterinflux").innerHTML = "Live: " + Math.round(value * 100) / 100;
                                         waterInfluxList.push(value);
 
                                         var trace1 = {
                                             y: waterInfluxList,
-                                            type: 'scatter'
+                                            type: 'scatter',
                                         };
 
                                         var data = [trace1];
@@ -163,8 +163,10 @@
                                         for (i = 0; i < value.length; i++){
                                             turbinesOn += value[i].capacityUsage;
                                         }
-                                        document.querySelector(".turbinsOn > p").innerHTML = turbinesOn;
-                                        document.querySelector(".turbinsOff > p").innerHTML = 14 - turbinesOn;
+                                        if (turbinesOn < 15){
+                                            document.querySelector(".turbinsOn > p").innerHTML = turbinesOn;
+                                            document.querySelector(".turbinsOff > p").innerHTML = 14 - turbinesOn;
+                                        }
                                     });
                                 }, 1000);
 
@@ -181,33 +183,38 @@
                 <div id="income" class="income hiddenElement">
                     <div class="moneyAndEnvironmentCost">
                         <h1>Income</h1>
-                        <p><span></span>kr</p>
+                        <p>+ <span style="color: green;"></span> kr</p>
                         <h1>Environment Cost</h1>
-                        <p><span></span>kr</p>
+                        <p>- <span style="color: red;"></span> kr</p>
                         <h1>Total Income</h1>
-                        <p><span></span>kr</p>
+                        <p>= <span></span> kr</p>
                         <script>
                             const p_taggene = document.querySelectorAll(".moneyAndEnvironmentCost > p")
                             setInterval(() => {
                                 groupState().then(value => {
-                                    p_taggene[0].childNodes[0].innerHTML = value.money;
-                                    p_taggene[1].childNodes[0].innerHTML = value.environmentCost;
-                                    p_taggene[2].childNodes[0].innerHTML = value.money - value.environmentCost;
+                                    p_taggene[0].childNodes[1].innerHTML = value.money;
+                                    p_taggene[1].childNodes[1].innerHTML = value.environmentCost;
+                                    p_taggene[2].childNodes[1].innerHTML = value.money - value.environmentCost;
                                 });
                             }, 1000);
                         </script>
                     </div>
 
                     <div id="powerPrice" class="powerPrice">
+                        <p id="livePowerprice">xxxx</p>
                         <script>
                             let powerPriceList = [];
                             setInterval(() => {
                                 powerPrice().then(value => {
+                                    document.getElementById("livePowerprice").innerHTML = "Live: " + Math.round(value * 100) / 100;
                                     powerPriceList.push(value);
 
                                     var trace1 = {
                                         y: powerPriceList,
-                                        type: 'scatter'
+                                        type: 'scatter',
+                                        line: {
+                                            color: 'rgb(255, 100, 0)'
+                                        }
                                     };
 
                                     var data = [trace1];
@@ -223,7 +230,10 @@
                                             zeroline: false,
                                             visible: false,
                                         },
-                                        yaxis: {fixedrange: true}
+                                        yaxis: {
+                                            fixedrange: true,
+                                            title: "NOK per megawattime"
+                                        }
                                     };
 
                                     Plotly.newPlot('powerPrice', data, layout, config);
