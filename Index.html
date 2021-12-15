@@ -159,20 +159,56 @@
 
                 <div id="income" class="income hiddenElement">
                     <div class="moneyAndEnvironmentCost">
-                        <p>money xx</p>
-                        <p>evironment xx</p>
-                        <p>total xx</p>
-                        <!-- <div class="money">
-                            
-                        </div>
+                        <h1>Income</h1>
+                        <p><span></span>kr</p>
+                        <h1>Environment Cost</h1>
+                        <p><span></span>kr</p>
+                        <h1>Total Income</h1>
+                        <p><span></span>kr</p>
+                        <script>
+                            const p_taggene = document.querySelectorAll(".moneyAndEnvironmentCost > p")
+                            setInterval(() => {
+                                groupState().then(value => {
+                                    p_taggene[0].childNodes[0].innerHTML = value.money;
+                                    p_taggene[1].childNodes[0].innerHTML = value.environmentCost;
+                                    p_taggene[2].childNodes[0].innerHTML = value.money - value.environmentCost;
+                                });
+                            }, 1000);
+                        </script>
+                    </div>
 
-                        <div class="environmentCost">
+                    <div id="powerPrice" class="powerPrice">
+                        <script>
+                            let powerPriceList = [];
+                            setInterval(() => {
+                                powerPrice().then(value => {
+                                    powerPriceList.push(value);
 
-                        </div>
-                        
-                        <div class="moneyTotal">
+                                    var trace1 = {
+                                        y: powerPriceList,
+                                        type: 'scatter'
+                                    };
 
-                        </div> -->
+                                    var data = [trace1];
+
+                                    var layout = {
+                                        title: "Strømpris",
+                                        autosize: false,
+                                        width: 593,
+                                        height: 710,
+                                        xaxis: {
+                                            fixedrange: true,
+                                            showgrid: false,
+                                            zeroline: false,
+                                            visible: false,
+                                        },
+                                        yaxis: {fixedrange: true}
+                                    };
+
+                                    Plotly.newPlot('powerPrice', data, layout, config);
+                                });
+                            }, 1000);
+                        </script>
                     </div>
                 </div>
 
