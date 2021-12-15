@@ -54,21 +54,33 @@
                                         x: [' '],
                                         y: [20],
                                         name: 'Min. Vannstand',
-                                        type: 'bar'
+                                        type: 'bar',
+                                        text: [20],
+                                        marker: {
+                                            color: 'rgb(173, 0, 0)'
+                                        }
                                     };
 
                                     var trace2 = {
                                         x: [' '],
                                         y: [value.waterLevel],
                                         name: 'Vannstand',
-                                        type: 'bar'
+                                        type: 'bar',
+                                        text: [Math.round(value.waterLevel * 100) / 100],
+                                        marker: {
+                                            color: 'rgb(24, 113, 201)'
+                                        }
                                     };
 
                                     var trace3 = {
                                         x: [' '],
                                         y: [40],
                                         name: 'Max. Vannstand',
-                                        type: 'bar'
+                                        type: 'bar',
+                                        text: [40],
+                                        marker: {
+                                            color: 'rgb(89, 89, 89)'
+                                        }
                                     };
 
                                     var data = [trace1, trace2, trace3];
@@ -80,8 +92,14 @@
                                         autosize: false,
                                         width: 593,
                                         height: 710,
-                                        xaxis: {fixedrange: true},
-                                        yaxis: {fixedrange: true}
+                                        xaxis: {
+                                            fixedrange: true,
+                                            title: "Live data"
+                                        },
+                                        yaxis: {
+                                            fixedrange: true,
+                                            title: "Høyde i meter"
+                                        },
                                     };
 
                                     Plotly.newPlot('waterLevel', data, layout, config);
@@ -117,7 +135,10 @@
                                                 zeroline: false,
                                                 visible: false,
                                             },
-                                            yaxis: {fixedrange: true}
+                                            yaxis: {
+                                                fixedrange: true,
+                                                title: "Kubikkmeter i sekundet"
+                                            }
                                         };
 
                                         Plotly.newPlot('waterInflux', data, layout, config);
