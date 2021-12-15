@@ -35,8 +35,8 @@ setInterval(() => {
             turbiner[i].style.transform = "rotate(" + (rotation + 1) + "deg)";
         }
     }
-    rotation++;
-}, 10);
+    rotation+= 4;
+}, 30);
 
 
 // under denne kommentaren er in og ut av skjermen animasjon over er panelet
@@ -55,7 +55,7 @@ function inOutTurbineTab() {
             inOutSidebar();
         }
         turbinPanelOpen = true;
-        filterDiv.style.filter = "blur(100px)"
+        filterDiv.style.filter = "blur(20px)"
         turbin_tab_DIV.style.left = "calc((100% - 1185px) / 2 + 50px / 2";
         turbin_tab_BUTTON.style.left = "calc(((100% - 1185px) / 2 + 50px / 2) - 30px)";
         turbin_tab_BUTTON.childNodes[0].src = "media/arrow_right.png";
