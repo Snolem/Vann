@@ -135,6 +135,24 @@
                                 <p>XX</p>
                                 <img src="media/turbin_på.png" width="200px">
                             </div>
+                            <script>
+                                setInterval(() => {
+                                    turbinesOn = 0;
+                                    turbines().then(value => {
+                                        for (i = 0; i < value.length; i++){
+                                            turbinesOn += value[i].capacityUsage;
+                                        }
+                                        document.querySelector(".turbinsOn > p").innerHTML = turbinesOn;
+                                        document.querySelector(".turbinsOff > p").innerHTML = 14 - turbinesOn;
+                                    });
+                                }, 1000);
+
+                                let rotateimage = 0;
+                                setInterval(() => {
+                                    document.querySelector(".turbinsOn > img").style.transform = "rotate(" + rotateimage + "deg)";
+                                    rotateimage += 4;
+                                }, 30);
+                            </script>
                         </div>
                     </div>
                 </div>
