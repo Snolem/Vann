@@ -177,14 +177,64 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+                <div id="income" class="income hiddenElement">
+                    <div class="moneyAndEnvironmentCost">
+                        <h1>Income</h1>
+                        <p><span></span>kr</p>
+                        <h1>Environment Cost</h1>
+                        <p><span></span>kr</p>
+                        <h1>Total Income</h1>
+                        <p><span></span>kr</p>
+                        <script>
+                            const p_taggene = document.querySelectorAll(".moneyAndEnvironmentCost > p")
+                            setInterval(() => {
+                                groupState().then(value => {
+                                    p_taggene[0].childNodes[0].innerHTML = value.money;
+                                    p_taggene[1].childNodes[0].innerHTML = value.environmentCost;
+                                    p_taggene[2].childNodes[0].innerHTML = value.money - value.environmentCost;
+                                });
+                            }, 1000);
+                        </script>
+                    </div>
 
-            <div id="income" class="income hiddenElement">
-                
-            </div>
+                    <div id="powerPrice" class="powerPrice">
+                        <script>
+                            let powerPriceList = [];
+                            setInterval(() => {
+                                powerPrice().then(value => {
+                                    powerPriceList.push(value);
+
+                                    var trace1 = {
+                                        y: powerPriceList,
+                                        type: 'scatter'
+                                    };
+
+                                    var data = [trace1];
+
+                                    var layout = {
+                                        title: "Strømpris",
+                                        autosize: false,
+                                        width: 593,
+                                        height: 710,
+                                        xaxis: {
+                                            fixedrange: true,
+                                            showgrid: false,
+                                            zeroline: false,
+                                            visible: false,
+                                        },
+                                        yaxis: {fixedrange: true}
+                                    };
+
+                                    Plotly.newPlot('powerPrice', data, layout, config);
+                                });
+                            }, 1000);
+                        </script>
+                    </div>
+                </div>
 
             </div>
+        </div>
 
             <button id="turbin_tab"><img src="media/arrow_left.png"></button>
             <div id="turbinpannel">
